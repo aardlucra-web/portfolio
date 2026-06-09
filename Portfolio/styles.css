@@ -1,0 +1,234 @@
+/* =====================
+   CSS VARIABLES (theme)
+   ===================== */
+
+/* :root is the top-level element — variables defined here work everywhere */
+:root {
+  --bg: #f5f0eb;
+  --surface: #fffdf9;
+  --text: #2c2c2c;
+  --text-muted: #777;
+  --accent: #c084a0;
+  --border: #e0d8d0;
+  --radius: 12px;
+}
+
+/* dark mode: when JS adds class="dark" to <body>, these override the above */
+body.dark {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --text: #e0e0e0;
+  --text-muted: #aaa;
+  --accent: #c084a0;
+  --border: #2a2a4a;
+}
+
+/* =====================
+   RESET & BASE
+   ===================== */
+
+/* remove default browser spacing and make sizing intuitive */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  /* smooth colour transition when dark mode toggles */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  /* sticks navbar to top of screen when scrolling */
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* removes the bullet points from the nav list */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* =====================
+   SECTIONS (shared)
+   ===================== */
+
+section {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+section h2 {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+/* =====================
+   HERO
+   ===================== */
+
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* =====================
+   ABOUT
+   ===================== */
+
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  /* stops photo from shrinking when text is long */
+  flex-shrink: 0;
+}
+
+/* =====================
+   SKILLS
+   ===================== */
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* each skill tag — JS will create these */
+.skill-tag {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* =====================
+   PROJECTS
+   ===================== */
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* =====================
+   CONTACT
+   ===================== */
+
+.contact p {
+  color: var(--text-muted);
+}
+
+/* =====================
+   RESPONSIVE — tablet and mobile
+   ===================== */
+
+/* anything 600px wide or narrower (phone) */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  /* stack about section vertically on mobile */
+  .about-content {
+    flex-direction: column;
+  }
+
+  /* hide nav links on mobile, keep logo and toggle */
+  .nav-links {
+    display: none;
+  }
+}
