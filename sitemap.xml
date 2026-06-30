@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — a map of all the pages on this site for search engines.
+  Google reads this to know what exists and when it was last updated.
+  "lastmod" = when the page was last changed (update this when you redeploy)
+  "priority" = how important this page is (1.0 = most important)
+  "changefreq" = how often it changes (monthly = a reasonable guess)
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main portfolio page — the only page on this site -->
+  <url>
+    <loc>https://aardlucra-web.github.io/portfolio/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+</urlset>
